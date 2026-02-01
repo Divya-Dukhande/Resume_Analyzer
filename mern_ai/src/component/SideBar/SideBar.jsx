@@ -1,22 +1,20 @@
-
-
 import React from 'react'
 import styles from './SideBar.module.css'
-import ArticleIcon from '@mui/icons-material/Article';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import LogoutIcon from '@mui/icons-material/Logout';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import ArticleIcon from '@mui/icons-material/Article'
+import DashboardIcon from '@mui/icons-material/Dashboard'
+import ManageSearchIcon from '@mui/icons-material/ManageSearch'
+import LogoutIcon from '@mui/icons-material/Logout'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const SideBar = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleLogout = () => {
-        localStorage.removeItem("isLoggedIn"); // ✅ KEY PART
-        navigate("/");
-    };
+        localStorage.removeItem("isLoggedIn")
+        localStorage.removeItem("authToken")
+        navigate("/login")
+    } // ✅ THIS WAS MISSING
 
     return (
         <div className={styles.sideBar}>
@@ -26,11 +24,25 @@ const SideBar = () => {
             </div>
 
             <div className={styles.sideBarOptionsBlock}>
-                <Link to="/dashboard" className={location.pathname === '/dashboard' ? styles.selectedOption : styles.sideBarOption}>
+                <Link
+                    to="/dashboard"
+                    className={
+                        location.pathname === '/dashboard'
+                            ? styles.selectedOption
+                            : styles.sideBarOption
+                    }
+                >
                     <DashboardIcon /> Dashboard
                 </Link>
 
-                <Link to="/history" className={location.pathname === '/history' ? styles.selectedOption : styles.sideBarOption}>
+                <Link
+                    to="/history"
+                    className={
+                        location.pathname === '/history'
+                            ? styles.selectedOption
+                            : styles.sideBarOption
+                    }
+                >
                     <ManageSearchIcon /> History
                 </Link>
 
@@ -39,7 +51,7 @@ const SideBar = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SideBar;
+export default SideBar

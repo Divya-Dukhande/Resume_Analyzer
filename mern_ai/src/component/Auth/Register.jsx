@@ -22,7 +22,7 @@ const Register = () => {
             }
 
             // 🗄️ DB insert via backend
-            await registerUser({ username, email, password });
+            await registerUser({ name: username, email, password });
 
             toast.success("Registration successful");
             navigate("/Dashboard");

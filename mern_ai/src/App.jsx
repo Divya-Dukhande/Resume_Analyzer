@@ -25,36 +25,70 @@
 
 // export default App
 
-import { Routes, Route, Navigate } from 'react-router-dom'
-import './App.css'
-import SideBar from './component/SideBar/SideBar'
-import Dashboard from './component/Dashboard/Dashboard'
-import History from './component/History/History'
-import Admin from './component/Admin/Admin'
+import { Routes, Route, Navigate } from "react-router-dom"
+import Login from "./component/Auth/Login"
+import Register from "./component/Auth/Register"
+import Dashboard from "./component/Dashboard/Dashboard"
+import History from "./component/History/History"
+import Admin from "./component/Admin/Admin"
+import SideBar from "./component/SideBar/SideBar"
 
-function App() {
+const isLoggedIn = () => {
+  return localStorage.getItem("isLoggedIn") === "true"
+}
+
+function ProtectedLayout({ children }) {
+  if (!isLoggedIn()) {
+    return <Navigate to="/login" replace />
+  }
+
   return (
-    <div className="App" style={{ display: "flex" }}>
-
-      {/* Sidebar */}
+    <div style={{ display: "flex" }}>
       <SideBar />
-
-      {/* Right Content */}
-      <div style={{ flex: 1 }}>
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/admin" element={<Admin />} />
-
-          {/* default */}
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </div>
-
+      <div style={{ flex: 1 }}>{children}</div>
     </div>
   )
 }
 
-export default App;
+function App() {
+  return (
+    <Routes>
+      {/* AUTH */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
+      {/* PROTECTED */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedLayout>
+            <Dashboard />
+          </ProtectedLayout>
+        }
+      />
 
+      <Route
+        path="/history"
+        element={
+          <ProtectedLayout>
+            <History />
+          </ProtectedLayout>
+        }
+      />
+
+      <Route
+        path="/admin"
+        element={
+          <ProtectedLayout>
+            <Admin />
+          </ProtectedLayout>
+        }
+      />
+
+      {/* DEFAULT */}
+      <Route path="*" element={<Navigate to="/login" />} />
+    </Routes>
+  )
+}
+
+export default App
