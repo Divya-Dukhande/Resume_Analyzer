@@ -1,0 +1,82 @@
+/* .sideBar {
+    flex: 0.2;
+    background-color: #0b0b5a;
+    color: white;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.sideBarIcon {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sideBarTopContent {
+    font-size: 26px;
+}
+
+.sideBarOption {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.selectedOption{
+    background-color: rgb(72,72,222);
+} */
+
+.sideBar {
+    flex: 0.2;
+    background-color: #0a0f3d;
+    /* polished deep navy */
+    color: white;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.sideBarIcon {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sideBarTopContent {
+    font-size: 26px;
+    color: #ffffff;
+}
+
+.sideBarOption {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    color: #e6e9ff;
+    /* softer white */
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* ACTIVE OPTION */
+.selectedOption {
+    background-color: #4f5dff;
+    color: #ffffff;
+
+   
+    padding: 20px;
+    font-size: 22px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
