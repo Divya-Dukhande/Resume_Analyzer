@@ -4,7 +4,6 @@ import Login from "./component/Auth/Login"
 import Register from "./component/Auth/Register"
 import Dashboard from "./component/Dashboard/Dashboard"
 import History from "./component/History/History"
-import Admin from "./component/Admin/Admin"
 import SideBar from "./component/SideBar/SideBar"
 
 const isLoggedIn = () => {
@@ -50,15 +49,7 @@ function App() {
         }
       />
 
-      <Route
-        path="/admin"
-        element={
-          <ProtectedLayout>
-            <Admin />
-          </ProtectedLayout>
-        }
-      />
-
+      
       {/* DEFAULT */}
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
