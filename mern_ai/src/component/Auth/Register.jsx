@@ -21,7 +21,6 @@ const Register = () => {
                 return;
             }
 
-            // 🗄️ DB insert via backend
             await registerUser({ name: username, email, password });
 
             toast.success("Registration successful");

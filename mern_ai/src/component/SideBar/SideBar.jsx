@@ -14,7 +14,7 @@ const SideBar = () => {
         localStorage.removeItem("isLoggedIn")
         localStorage.removeItem("authToken")
         navigate("/login")
-    } // ✅ THIS WAS MISSING
+    }
 
     return (
         <div className={styles.sideBar}>

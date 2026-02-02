@@ -20,7 +20,6 @@ const Login = () => {
                 return;
             }
 
-            // ✅ EMAIL-BASED LOGIN (MATCHES DB)
             const res = await loginUser({ email, password });
 
             localStorage.setItem("authToken", res.data.token);
