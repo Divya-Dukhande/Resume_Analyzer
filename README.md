@@ -1,7 +1,8 @@
 # AI Resume Analyzer
 
 ## Introduction
-AI Resume Analyzer is a web application designed to help students and job seekers evaluate and improve their resumes. The application analyzes resume content and provides AI-powered feedback on grammar, spelling, strengths, weaknesses, and overall resume quality.
+AI Resume Analyzer is a web-based application designed to help students and job seekers analyze and improve the quality of their resumes using AI-powered analysis.
+Users can upload their resumes, and the system analyzes the resume content to identify grammar and spelling mistakes, strengths, weaknesses, and other areas that can be improved. The application provides structured feedback and ATS-focused suggestions to help users create more professional and effective resumes. The system uses a React.js frontend with a Node.js and Express.js backend, an SQL database for storing analysis results, and Puter.js for AI-powered resume analysis. It provides a simple and user-friendly interface through which users can upload resumes and view their generated analysis and feedback.
 
 ## Key Features
 - Resume analysis
